@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+
+    <title>
+        {% block title_block %}
+        Campus Energy Usage
+        {% endblock %}
+    </title>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="float: top;">
+        <a class="navbar-brand" href="#"></a>
+
+        <button class="navbar-toggler" style="top: 0; left: 0;" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+
+                {% if user.is_authenticated %}
+
+                <a class="nav-item nav-link active" href="/energy/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/energy/about/">About Us</a>
+                <a class="nav-item nav-link" href="/energy/upload/">Upload Data</a>
+                <a class="nav-item nav-link" href="/energy/logout/">Log Out</a>
+
+                {% else %}
+
+                <a class="nav-item nav-link active" href="/energy/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/energy/about/">About Us</a>
+                <a class="nav-item nav-link" href="/energy/upload/">Upload Data</a>
+                <a class="nav-item nav-link" href="/energy/login/">Log In</a>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </nav>
+
+    <em style="position: fixed; top: 0; right: 0; font-size: 24px; padding-right: 5px;">
+
+        {% if user.is_authenticated %}
+            Welcome, {{ user.username }}!
+        {% endif %}
+
+    </em>
+
+    <img src = "{% static 'images/logo.jpg' %}" alt = "Bates College Logo" width="250" height="132"
+         style="display: block; margin-left: auto; margin-right: auto; background-blend-mode: lighten;"/>
+
+    <h1 class="display-4" style="text-align: center;"> Bates College Energy Consumption Profile</h1>
+
+</head>
+
+<body style = "background-color:#F5F5F5">
+<div>
+
+    {% block body_block %}
+    No information available as of now.
+    {% endblock %}
+
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<script src="http://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.j\s"></script>
+
+</body>
+
+</html>
+
+

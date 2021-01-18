@@ -1,0 +1,27 @@
+{% extends 'Energy/base.html' %}
+
+{% load static %}
+
+{% block title_block %}
+Upload Data
+{% endblock %}
+
+{% block body_block %}
+
+<div>
+
+    <form id="data_form" method="post" action="/energy/upload/" enctype="multipart/form-data">
+        {% csrf_token %}
+        <br/>
+        {% for field in form.visible_fields %}
+
+        <p style="font-size: 20px; padding-left: 5px;"> {{ message }} <br/> <br/> {{ field }}
+            <input type="submit" name="submit" value="Upload" style="font-size: 20px;">
+        <p>
+
+        {% endfor %}
+    </form>
+
+</div>
+
+{% endblock %}

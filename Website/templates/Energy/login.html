@@ -1,0 +1,33 @@
+{% extends 'Energy/base.html' %}
+
+{% load static %}
+
+{% block title_block %}
+
+Log-in
+{% endblock %}
+
+{% block body_block %}
+
+{% if message %}
+
+<p style="font-size: 16px; padding-left: 5px;">
+    <b> {{ message }} </b>
+</p>
+
+{% endif %}
+
+<form id="login_form" method="post" action="{% url 'login' %}" style="font-size: 20px; padding-left: 5px;">
+
+    {% csrf_token %}
+
+    Username: <input type="text" name="username" value="" size="10" />
+    <br/>
+    Password: <input type="password" name="password" value="" size="10" />
+    <br/>
+
+    <input type="submit" value="Log In" />
+    <input type="hidden" name="next" value="{{ request.GET.next }}" />
+
+</form>
+{% endblock %}

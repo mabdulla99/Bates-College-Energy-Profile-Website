@@ -1,0 +1,74 @@
+{% extends 'Energy/base.html' %}
+
+{% load static %}
+
+{% block title_block %}
+About Page
+{% endblock %}
+
+{% block body_block %}
+<br/>
+<h4 style = "padding-left: 5px;">This website was created by the Data Team at EcoReps, Bates College Chapter.</h4>
+<br/>
+
+<ul class="list-group" style = "background-color:#F5F5F5;">
+    <li class="list-group-item" style = "background-color:#F5F5F5;">
+        <a href="mailto:mabdulla@bates.edu">
+            <p style="display:inline;">Muhammad Abdullah<p/>
+        </a>
+        <p style="margin-top: 17px;">, '22.<p/>
+        <img src = "{% static 'images/abdullah.jpg' %}" alt = "Muhammad Abdullah" width="175" height="174"
+         style="background-blend-mode: lighten; align: right; margin-left: 100px"/>
+    </li>
+    <li class="list-group-item" style = "background-color:#F5F5F5;">
+        <a href="mailto:bchafamo@bates.edu">
+            <p style="display:inline;">Biruk Chafamo<p/>
+        </a>
+        <p style="margin-top: 17px;">, '22.<p/>
+        <img src = "{% static 'images/biruk.jpg' %}" alt = "Biruk Chafamo" width="175" height="174"
+         style="background-blend-mode: lighten; align: right; margin-left: 100px;"/>
+    </li>
+    <li class="list-group-item" style = "background-color:#F5F5F5;">
+        <a href="mailto:smaccorm@bates.edu">
+            <p style="display:inline;">Sarah MacCormick<p/>
+        </a>
+        <p style="margin-top: 17px;">, '21.<p/>
+        <img src = "{% static 'images/sarah.jpg' %}" alt = "Sarah MacCormick" width="200" height="267"
+         style="background-blend-mode: lighten; align: right; margin-left: 100px;"/>
+    </li>
+
+</ul>
+
+<br/>
+
+<h4 style = "padding-left: 5px;">under the supervision of</h4>
+
+<br/>
+
+<ul class="list-group">
+    <li class="list-group-item" style = "background-color:#F5F5F5;">
+        <a href="mailto:mhaining@bates.edu">
+            <p style="display:inline;">Maureen Haining<p/>
+        </a>
+        <p style="margin-top: 17px;">, Programmer Analyst, Information and Library Services, Bates College.<p/>
+        <img src = "{% static 'images/maureen.jpg' %}" alt = "Maureen Haining" width="300" height="200"
+         style="background-blend-mode: lighten; align: right; margin-left: 100px;"/>
+    </li>
+    <li class="list-group-item" style = "background-color:#F5F5F5;">
+        <a href="mailto:ttwist@bates.edu">
+            <p style="display:inline;">Thomas Twist<p/>
+        </a>
+        <p style="margin-top: 17px;">, Sustainability Manager, Cutten Maintenance Center, Bates College.<p/>
+        <img src = "{% static 'images/tom.jpg' %}" alt = "Thomas Twist" width="200" height="300"
+         style="background-blend-mode: lighten; align: right; margin-left: 100px;"/>
+    </li>
+
+</ul>
+
+<br/>
+
+<div style="bottom: 0; left: 0; width: 100%; text-align: center;">
+    <a href="https://www.facebook.com/batesecoreps/" class="fa fa-facebook"></a>
+</div>
+
+{% endblock %}

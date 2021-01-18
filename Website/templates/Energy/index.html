@@ -1,0 +1,62 @@
+{% extends 'Energy/base.html' %}
+
+{% load static %}
+
+{% block body_block %}
+
+<br/>
+
+<div style = "background-color: #D4EDE9; justify-content: center; display: flex;
+text-align: start; margin-left: 250px; margin-right: 250px; font-family: Helvetica;">
+    <ul style="margin-top: 14px;">
+        <li>Select a building name below to view its energy consumption profile <b>(multiple selections are possible!) </b>.</li>
+        <li>Use the range slider at the bottom to isolate time periods. Click and hold to drag the slider.</li>
+        <li>Double-click main plot to retrieve original version.</li>
+    </ul>
+</div>
+
+<br/>
+
+<div style="padding-left: 700px; padding-right: 700px; font-size: 18px; font-family: Helvetica; text-align: center;">
+
+    {% if message %}
+    <b> {{ message }} </b>
+    {% endif %}
+
+    <br/>
+
+    <form id="data_form" method="post" action="/energy/" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <br/>
+
+        {% for checkbox in form.building %}
+
+        <label class="btn btn-secondary">
+            {{ checkbox.tag }} {{ checkbox.choice_label }}
+        </label>
+
+        {% endfor %}
+
+        <br/>
+        <br/>
+
+        <input class="btn btn-primary" type="submit" name="submit" value="Plot!"
+               style="font-size: 20px; align: center; width: 25%">
+    </form>
+
+</div>
+
+<br/>
+
+{% if plot %}
+
+<div style="padding-left: 200px;">
+    {{ plot|safe }}
+</div>
+
+{% endif %}
+
+<br/>
+
+{% endblock %}
